@@ -169,6 +169,7 @@ a.links_navegação_footer:hover::after { content: " Clique Aqui"; /* Texto adic
   backdrop-filter: blur(5px); /* Efeito vidro sutil */
   -webkit-backdrop-filter: blur(5px);
   transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
 .esquerda:hover {
@@ -190,12 +191,23 @@ a.links_navegação_footer:hover::after { content: " Clique Aqui"; /* Texto adic
   content: "";
   position: absolute;
   bottom: -8px;
-  left: 0;
-  width: 50px;
-  height: 3px;
+  left:0%;
+  width: 0;
+  height: 2px;
   background: #d2e2e5;
   border-radius: 3px;
+  transition: width 0.3s ease-in-out;
 }
+
+.esquerda h2:hover {
+  color: #ee52ba;
+  text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+}
+
+.esquerda h2:hover::after {
+  width: 100%;
+}
+
 
 .esquerda p {
   color: #e0e1dd;
@@ -221,8 +233,8 @@ a.links_navegação_footer:hover::after { content: " Clique Aqui"; /* Texto adic
   border: 1px solid rgba(0, 180, 216, 0.2);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-   position: relative;
-}
+  position: relative;
+ }
 
 .servico:hover {
   transform: translateY(-8px); /* Efeito mais pronunciado */
@@ -245,10 +257,23 @@ a.links_navegação_footer:hover::after { content: " Clique Aqui"; /* Texto adic
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 30px;
+  left:0%;
+  width: 0px;
   height: 2px;
   background:#ee52ba;
+  
+}
+.servico h3:hover {
+  color: #e0e1dd;
+  text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+  text-align: center;
+}
+
+.servico h3:hover::after {
+  width: 100%;
+  background: #d2e2e5;
+  
+  
 }
 
 .servico p {
@@ -565,12 +590,27 @@ a.links_navegação_footer:hover::after { content: " Clique Aqui"; /* Texto adic
     grid-template-columns: 1fr;
     gap: 1rem;
     margin: auto;
-    /*place-items: center;*/
     
+      
   }
- 
 
-  .carousel-item {
+ #contato{
+     text-align: center; /* Centraliza o conteúdo horizontalmente */
+      margin: auto; /* Centraliza o bloco na página */
+      max-width: 600px; /* Define uma largura máxima para o formulário */
+      padding: 20px; /* Adiciona um espaçamento interno ao redor do formulário */
+}
+
+
+ .footer-logo{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 55px;
+  max-width: 100%;
+ 
+} 
+
+.carousel-item {
     margin: 0 25px;
   }
 }
