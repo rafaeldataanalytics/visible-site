@@ -260,6 +260,10 @@ footer.rodape {
   gap: 0.8rem;
 }
 
+.rodape img {
+  border-radius: 50%;
+}
+
 /* Footer Bottom */
 .footer-bottom {
   margin-top: 4rem;
