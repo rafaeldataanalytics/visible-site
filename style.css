@@ -91,7 +91,7 @@ button {
 
 .menu a {
   position: relative;
-  color: #47505a;
+  color: #5a4756;
   font-size: 0.88rem;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -2289,5 +2289,42 @@ html[data-theme="dark"] .project-link:hover {
   .project-link:hover,
   .project-link:hover span {
     transform: none;
+  }
+}
+
+/* =========================================================
+   VISIBLE — Menu Mobile Dark Mode
+   ========================================================= */
+
+@media (max-width: 760px) {
+  html[data-theme="dark"] .menu {
+    background: #10151f;
+    border-bottom-color: #273243;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  html[data-theme="dark"] .menu ul {
+    background: transparent;
+  }
+
+  html[data-theme="dark"] .menu a {
+    color: #f5f7fb;
+  }
+
+  html[data-theme="dark"] .menu a:not(.menu-cta):hover {
+    color: #76a0ff;
+    background: #151c28;
+  }
+
+  html[data-theme="dark"] .menu-cta {
+    background: #151c28;
+    color: #ffffff !important;
+    border: 1px solid #303b4c;
+  }
+
+  html[data-theme="dark"] .menu-cta:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb;
   }
 }

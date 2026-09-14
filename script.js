@@ -7,57 +7,50 @@ if (hamburger && menu) {
 
     hamburger.classList.toggle("active", isOpen);
     hamburger.setAttribute("aria-expanded", String(isOpen));
-    hamburger.setAttribute(
-      "aria-label",
-      isOpen ? "Fechar menu" : "Abrir menu"
-    );
+    hamburger.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
   });
 
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-      hamburger.classList.remove("active");
-      hamburger.setAttribute("aria-expanded", "false");
-      hamburger.setAttribute("aria-label", "Abrir menu");
-    });
-  });
-}
-
-
-/* =========================================================
+  /* =========================================================
    VISIBLE — Theme Switcher
    ========================================================= */
 
-(() => {
-  const root = document.documentElement;
-  const toggle = document.getElementById("theme-toggle");
+  (() => {
+    const root = document.documentElement;
+    const toggle = document.getElementById("theme-toggle");
 
-  if (!toggle) return;
+    if (!toggle) return;
 
-  const savedTheme = localStorage.getItem("visible-theme");
-  const systemDark = window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem("visible-theme");
 
-  const initialTheme = savedTheme || (systemDark ? "dark" : "light");
-  root.setAttribute("data-theme", initialTheme);
+    const systemDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  const updateThemeButton = (theme) => {
-    const dark = theme === "dark";
-    toggle.setAttribute("aria-pressed", String(dark));
-    toggle.setAttribute(
-      "aria-label",
-      dark ? "Ativar modo claro" : "Ativar modo escuro"
-    );
-  };
+    const initialTheme = savedTheme || (systemDark ? "dark" : "light");
 
-  updateThemeButton(initialTheme);
+    root.setAttribute("data-theme", initialTheme);
 
-  toggle.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
+    const updateThemeButton = (theme) => {
+      const dark = theme === "dark";
 
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("visible-theme", next);
-    updateThemeButton(next);
-  });
-})();
+      toggle.setAttribute("aria-pressed", String(dark));
+
+      toggle.setAttribute(
+        "aria-label",
+        dark ? "Ativar modo claro" : "Ativar modo escuro",
+      );
+    };
+
+    updateThemeButton(initialTheme);
+
+    toggle.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("visible-theme", next);
+
+      updateThemeButton(next);
+    });
+  })();
+}
